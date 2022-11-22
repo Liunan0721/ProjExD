@@ -37,7 +37,8 @@ def kaitou(abs_chars):
     if num != num_of_abs_chars:
         print("不正解です。")
     else:
-        print("正解です。それでは、具体的に欠損文字を1つずつ入力してください。")
+        print("正解です。")
+        print("それでは、具体的に欠損文字を1つずつ入力してください。")
         for i in range(num):
             ans = input(f"{i + 1}つ目の文字を入力してください：")
             if ans not in abs_chars:
