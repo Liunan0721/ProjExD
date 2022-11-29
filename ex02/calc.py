@@ -13,7 +13,7 @@ def button_click(event):
         entry.delete(0, tk.END) # 表示文字列の削除
         entry.insert(tk.END, res) # 結果の挿入
 
-    elif num in function:
+    elif num in function: 
         siki = entry.get()
         if num == "C":
             entry.delete(0, tk.END) 
@@ -23,17 +23,15 @@ def button_click(event):
 
         if num == "x^2":
             siki = entry.get()
-            res = float(siki)**2
+            res = float(siki)**2 #文字列を実数に変換して、その2乗を取得
             entry.delete(0,tk.END)
             entry.insert(tk.END, res)
 
         if num == "1/x":
             siki = entry.get()
-            res = 1/float(siki)
+            res = 1/float(siki) 
             entry.delete(0,tk.END)
             entry.insert(tk.END, res)
-
-
 
 
     else: #[=]とclearリスト以外の文字列
@@ -41,7 +39,6 @@ def button_click(event):
         #練習6
 
         entry.insert(tk.END, num)
-
 
 
 #練習1
@@ -84,8 +81,6 @@ button.grid(row= 6, column=1)
 button.bind("<1>", button_click)
     
 
-
-
 #練習5
 r, c = 2, 3
 operators = ["+", "-", "*", "/", "="]
@@ -94,9 +89,6 @@ for ope in operators:
     button.grid(row= r, column=c)
     button.bind("<1>", button_click)
     r += 1
-
-
-
 
 
 root.mainloop()
