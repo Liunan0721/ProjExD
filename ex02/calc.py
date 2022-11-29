@@ -16,7 +16,7 @@ def button_click(event):
     elif num in function: 
         siki = entry.get()
         if num == "C":
-            entry.delete(0, tk.END) 
+            entry.delete(0, tk.END) # 表示文字列の削除
         
         if num == "←":
             entry.delete(len(siki)-1, tk.END) # 表示文字列の一桁を消す
@@ -27,7 +27,7 @@ def button_click(event):
             entry.delete(0,tk.END)
             entry.insert(tk.END, res)
 
-        if num == "1/x":
+        if num == "1/x": # ボタン"1/x"を押すとき
             siki = entry.get()
             res = 1/float(siki) 
             entry.delete(0,tk.END)
