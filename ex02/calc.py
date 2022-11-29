@@ -7,8 +7,13 @@ def button_click(event):
     btn = event.widget
     num = btn["text"]
     if num == "=":
-        pass
-    else:
+        #練習7
+        siki = entry.get() # 数式の文字列を取得する
+        res = eval(siki) # 数式文字列を評価する
+        entry.delete(0, tk.END) # 表示文字列の削除
+        entry.insert(tk.END, res) # 結果の挿入
+        
+    else: #[=]以外の文字列
         #tkm.showinfo("", f"{num}ボタンがクリックされました")
         #練習6
         entry.insert(tk.END, num)
