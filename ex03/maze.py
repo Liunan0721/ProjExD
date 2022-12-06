@@ -1,4 +1,5 @@
 import tkinter as tk
+import maze_maker as mm
 
 def key_down(event):
     global key
@@ -28,6 +29,10 @@ if __name__ == "__main__":
     root.title("迷えるこうかとん")
     canvas = tk.Canvas(root, width=1500, height=900, bg="black")
     canvas.pack()
+    
+    maze_lst = mm.make_maze(15, 9)
+
+
     kokaton = tk.PhotoImage(file="fig/4.png")
     cx, cy = 300, 400
     canvas.create_image(cx, cy, image=kokaton, tag="kokaton")
@@ -35,5 +40,6 @@ if __name__ == "__main__":
     root.bind("<KeyPress>", key_down)
     root.bind("<KeyRelease>", key_up)
     main_proc()
+    
 
     root.mainloop()
