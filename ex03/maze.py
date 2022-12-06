@@ -8,6 +8,6 @@ if __name__ == "__main__":
     kokaton = tk.PhotoImage(file="fig/4.png")
     cx, cy = 300, 400
     canvas.create_image(cx, cy, image=kokaton, tag="kokaton")
-    
+    key = ""
 
     root.mainloop()
