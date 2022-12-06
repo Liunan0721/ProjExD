@@ -31,6 +31,7 @@ if __name__ == "__main__":
     canvas.pack()
     
     maze_lst = mm.make_maze(15, 9)
+    mm.show_maze(canvas, maze_lst)
 
 
     kokaton = tk.PhotoImage(file="fig/4.png")
