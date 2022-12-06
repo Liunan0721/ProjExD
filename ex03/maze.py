@@ -12,7 +12,8 @@ def key_up(event):
     key = ""
 
 def resert():
-    global mx, my
+    global mx, my, st
+    st = time.time()
     mx, my =1, 1
     
 
