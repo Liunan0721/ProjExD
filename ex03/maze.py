@@ -7,9 +7,11 @@ def key_down(event):
     key = event.keysym
     print(key)
 
+
 def key_up(event):
     global key
     key = ""
+
 
 def resert():
     global mx, my, st
@@ -42,16 +44,7 @@ def main_proc():
         label.pack()
     cx, cy = mx*100+50, my*100+50
     canvas.coords("kokaton", cx, cy)
-    root.after(100, main_proc)
-
-
-def game_st():
-    global tmr, jid
-    label["text"] = tmr
-    tmr = tmr-1
-    jid = root.after(1000, game_st)
-
-    
+    root.after(100, main_proc)    
 
 
 if __name__ == "__main__":
