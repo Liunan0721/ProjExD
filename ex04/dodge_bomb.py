@@ -1,6 +1,7 @@
 import pygame as pg
 import sys
 import random
+import time
 
 
 def check_bound(obj_rct, scr_rct):
@@ -24,9 +25,10 @@ def main():
     scrn_rct = scrn_sfc.get_rect()
     pgbg_sfc = pg.image.load("fig/pg_bg.jpg")
     pgbg_rct = pgbg_sfc.get_rect()
+
     
     #練習3
-    tori_sfc = pg.image.load("fig/6.png")
+    tori_sfc = pg.image.load("fig/4.png")
     tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
     tori_rct = tori_sfc.get_rect()
     tori_rct.center = 900, 400
@@ -43,9 +45,14 @@ def main():
     scrn_sfc.blit(bomb_sfc, bomb_rct)
     vx, vy = +1, +1
 
+    st = time.time() # ゲームのスタート時間
+
+    
 
     #練習2
     while True:
+        ed = time.time() 
+        gt = ed-st # ゲームの経過時間を計る
         scrn_sfc.blit(pgbg_sfc, pgbg_rct)
 
         for event in pg.event.get():
@@ -72,22 +79,52 @@ def main():
                 tori_rct.centerx += 1
             if key_dct[pg.K_RIGHT]:
                 tori_rct.centerx -= 1
-        scrn_sfc.blit(tori_sfc, tori_rct)
-
-        #練習6
-        bomb_rct.move_ip(vx, vy)
-        scrn_sfc.blit(bomb_sfc, bomb_rct)
-        yoko, tate = check_bound(bomb_rct, scrn_rct)
-        vx *= yoko
-        vy *= tate
+        scrn_sfc.blit(tori_sfc, tori_rct)     
 
         # 練習8
-        if tori_rct.colliderect(bomb_rct):
-            return
+        if tori_rct.colliderect(bomb_rct) :  # こうかとんと爆弾がぶつかったら
+            tori_sfc = pg.image.load("fig/8.png") #泣いているこうかとんに変える
+            tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
+            bomb_rct.move_ip(vx, vy)
+            scrn_sfc.blit(bomb_sfc, bomb_rct)
+            scrn_sfc.blit(tori_sfc, tori_rct)
+            vx, vy = 0, 0 # 爆弾の移動が止まる
+
+
+        else:
+            if gt >= 30:
+                tori_sfc = pg.image.load("fig/6.png") #楽しいこうかとんに変える
+                tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
+                bomb_rct.move_ip(vx, vy)
+                scrn_sfc.blit(bomb_sfc, bomb_rct)
+                scrn_sfc.blit(tori_sfc, tori_rct)
+                vx, vy = 0, 0
+            if gt >= 35:
+                return
+            else:
+                bomb_rct.move_ip(vx, vy)
+                scrn_sfc.blit(bomb_sfc, bomb_rct)
+                yoko, tate = check_bound(bomb_rct, scrn_rct)
+                vx *= yoko
+                vy *= tate
+                if gt%5==0: # 経過時間が五秒ごと経ったら爆弾の移動速度が早くなる
+                    vx += 1
+                    vy += 1
+
+        print(gt)
+
+
+
+        
+    
     
 
         pg.display.update()
         clock.tick(1000)
+    
+            
+        
+
 
 
 
