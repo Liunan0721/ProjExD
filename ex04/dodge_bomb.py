@@ -96,7 +96,6 @@ def main():
                 tori_sfc = pg.image.load("fig/6.png") #楽しいこうかとんに変える
                 tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
                 bomb_rct.move_ip(vx, vy)
-                scrn_sfc.blit(bomb_sfc, bomb_rct)
                 scrn_sfc.blit(tori_sfc, tori_rct)
                 vx, vy = 0, 0
             if gt >= 35:
