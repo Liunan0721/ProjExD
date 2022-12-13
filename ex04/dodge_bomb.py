@@ -92,7 +92,7 @@ def main():
 
 
         else:
-            if gt >= 30:
+            if gt >= 30: # ゲームの経過時間が30秒経ったら
                 tori_sfc = pg.image.load("fig/6.png") #楽しいこうかとんに変える
                 tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
                 bomb_rct.move_ip(vx, vy)
