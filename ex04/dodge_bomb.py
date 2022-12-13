@@ -44,10 +44,8 @@ def main():
     bomb_rct.centery = random.randint(0, scrn_rct.height)
     scrn_sfc.blit(bomb_sfc, bomb_rct)
     vx, vy = +1, +1
+    st = time.time() # ゲームのスタート時間    
 
-    st = time.time() # ゲームのスタート時間
-
-    
 
     #練習2
     while True:
@@ -89,16 +87,14 @@ def main():
             scrn_sfc.blit(bomb_sfc, bomb_rct)
             scrn_sfc.blit(tori_sfc, tori_rct)
             vx, vy = 0, 0 # 爆弾の移動が止まる
-
-
         else:
             if gt >= 30: # ゲームの経過時間が30秒経ったら
                 tori_sfc = pg.image.load("fig/6.png") #楽しいこうかとんに変える
                 tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
                 bomb_rct.move_ip(vx, vy)
                 scrn_sfc.blit(tori_sfc, tori_rct)
-                vx, vy = 0, 0
-            if gt >= 35:
+                vx, vy = 0, 0 # 爆弾の移動速度が0になる
+            if gt >= 35: # 35秒に経ったらゲーム終了
                 return
             else:
                 bomb_rct.move_ip(vx, vy)
@@ -109,24 +105,8 @@ def main():
                 if gt%5==0: # 経過時間が五秒ごと経ったら爆弾の移動速度が早くなる
                     vx += 1
                     vy += 1
-
-        print(gt)
-
-
-
-        
-    
-    
-
         pg.display.update()
         clock.tick(1000)
-    
-            
-        
-
-
-
-
 
 
 if __name__ == "__main__":
