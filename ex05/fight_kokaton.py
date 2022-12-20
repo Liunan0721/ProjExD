@@ -84,7 +84,7 @@ class Bomb:
         self.blit(scr) 
 
 
-class Shield:
+class Shield: #保護場の追加
     def __init__(self, color, x, y, hw, scr:Screen):
         self.sfc = pg.Surface((hw+50, hw+50))
         pg.draw.rect(self.sfc, color, (x, y, hw, hw))
@@ -97,7 +97,7 @@ class Shield:
 
 
     
-def load_sound(file):
+def load_sound(file):#音声の追加
     """because pygame can be be compiled without mixer."""
     if not pg.mixer:
         return None
@@ -157,9 +157,6 @@ def main():
         bkd = Bomb(color, 10, (vx, vy), scr)
         bkd_lst.append(bkd)
 
-    
-    #bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
-    #bkd.update(scr)
 
     # 練習２
     while True:
@@ -173,7 +170,7 @@ def main():
         for i in range(10):
             bkd_lst[i].update(scr)    
             if kkt.rct.colliderect(bkd_lst[i].rct):
-                if kkt.rct in hogo.rct:
+                if kkt.rct in hogo.rct: #こうかとんが保護場にいると
                     pass
                 else:
                     return
