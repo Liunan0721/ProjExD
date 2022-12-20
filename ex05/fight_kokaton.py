@@ -164,7 +164,6 @@ def main():
     # 練習２
     while True:
         scr.blit()   # scrn_sfc.blit(pgbg_sfc, pgbg_rct) 
-
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
