@@ -157,7 +157,6 @@ def main():
         bkd = Bomb(color, 10, (vx, vy), scr)
         bkd_lst.append(bkd)
 
-
     
     #bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
     #bkd.update(scr)
