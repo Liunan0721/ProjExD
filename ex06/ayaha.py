@@ -4,7 +4,7 @@ import time, random
 
 
 def check_bound(obj_rct, scr_rct):
-    # 第1引数；こうかとんrectまたは爆弾ect
+    # 第1引数；敵rect
     # 第2引数：スクリーンrect
     # 範囲内：+1/範囲外：-1
     yoko, tate = +1, +1
@@ -52,7 +52,6 @@ def main():
     scor = 0 #スコアの初期値
 
     st = time.time()
-
 
 
     while True:
